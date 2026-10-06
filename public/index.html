@@ -1,57 +1,70 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="An interactive CI/CD pipeline built for the MMAUG DevOps bootcamp labs." />
-    <title>MMAUG Pipeline Lab</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="./" aria-label="MMAUG Pipeline Lab home">
-        <span class="brand-mark">M</span>
-        <span>MMAUG <small>DevOps Lab</small></span>
-      </a>
-      <span class="session-pill">30-Day Bootcamp · 2026</span>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div>
-          <p class="eyebrow">From commit to customer</p>
-          <h1>Make every change<br /><span>safe to ship.</span></h1>
-          <p class="hero-copy">This small application is the workload for our hands-on CI/CD lab. Change it, test it, build it, and let automation deliver it.</p>
-          <div class="actions">
-            <button class="button primary" type="button" data-run>Run next stage</button>
-            <button class="button secondary" type="button" data-reset>Reset pipeline</button>
-          </div>
-        </div>
-        <aside class="signal-card" aria-label="Pipeline status">
-          <div class="signal-card-header">
-            <span class="live-dot"></span>
-            <span data-state>Waiting for a commit</span>
-            <strong data-progress-text>0%</strong>
-          </div>
-          <div class="progress-track" aria-hidden="true"><span data-progress></span></div>
-          <ol class="stage-list" data-stage-list></ol>
-        </aside>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An interactive CI/CD pipeline built for the MMAUG DevOps bootcamp labs." />
+  <title>MMAUG Pipeline Lab</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
 
-      <section class="principles" aria-labelledby="principles-title">
-        <div>
-          <p class="eyebrow">The delivery loop</p>
-          <h2 id="principles-title">Small changes. Fast feedback. Confident releases.</h2>
-        </div>
-        <div class="principle-grid">
-          <article><span>01</span><h3>Integrate continuously</h3><p>Commit often and validate each change automatically.</p></article>
-          <article><span>02</span><h3>Build once</h3><p>Create one traceable artifact that can move between environments.</p></article>
-          <article><span>03</span><h3>Deploy safely</h3><p>Use checks, approvals, and observability to reduce release risk.</p></article>
-        </div>
-      </section>
-    </main>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="MMAUG Pipeline Lab home">
+      <span class="brand-mark">M</span>
+      <span>MMAUG <small>DevOps Lab</small></span>
+    </a>
+    <span class="session-pill">30-Day Bootcamp · 2026</span>
+  </header>
 
-    <footer><span>MMAUG Community · Malta</span><span>Learn by shipping.</span></footer>
-    <script type="module" src="./js/app.js"></script>
-  </body>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">From commit to customer</p>
+        <h1>Make every change<br /><span>safe to ship.</span></h1>
+        <p class="hero-copy">This small application is the workload for our hands-on CI/CD lab. Change it, test it,
+          build it, and let automation deliver it.</p>
+        <div class="actions">
+          <button class="button primary" type="button" data-run>Run next stage</button>
+          <button class="button secondary" type="button" data-reset>Reset pipeline</button>
+        </div>
+      </div>
+      <aside class="signal-card" aria-label="Pipeline status">
+        <div class="signal-card-header">
+          <span class="live-dot"></span>
+          <span data-state>Waiting for a commit</span>
+          <strong data-progress-text>0%</strong>
+        </div>
+        <div class="progress-track" aria-hidden="true"><span data-progress></span></div>
+        <ol class="stage-list" data-stage-list></ol>
+      </aside>
+    </section>
+
+    <section class="principles" aria-labelledby="principles-title">
+      <div>
+        <p class="eyebrow">The delivery loop</p>
+        <h2 id="principles-title">Small changes. Fast feedback. Confident releases.</h2>
+      </div>
+      <div class="principle-grid">
+        <article><span>01</span>
+          <h3>Integrate continuously</h3>
+          <p>Commit often and validate each change automatically.</p>
+        </article>
+        <article><span>02</span>
+          <h3>Build once</h3>
+          <p>Create one traceable artifact that can move between environments.</p>
+        </article>
+        <article><span>03</span>
+          <h3>Deploy safely</h3>
+          <p>Use checks, approvals, and observability to reduce release risk.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>MMAUG Community · Malta</span><span>I love NetDevOps Engineering.</span></footer>
+  <script type="module" src="./js/app.js"></script>
+</body>
+
 </html>
