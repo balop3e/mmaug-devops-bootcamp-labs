@@ -1,0 +1,42 @@
+{
+  "title": "MMAUG Tooling Lab",
+  "uid": "mmaug-tooling",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": false,
+  "refresh": "5s",
+  "time": { "from": "now-5m", "to": "now" },
+  "panels": [
+    {
+      "id": 1, "type": "stat", "title": "Can Prometheus scrape the app? (1 = yes)",
+      "gridPos": { "x": 0, "y": 0, "w": 8, "h": 5 },
+      "datasource": { "type": "prometheus", "uid": "mmaug-prometheus" },
+      "targets": [{ "refId": "A", "expr": "up{job=\"tooling-web\"}" }],
+      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "red", "value": null }, { "color": "green", "value": 1 }] } }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none" }
+    },
+    {
+      "id": 2, "type": "stat", "title": "Application requests since process start",
+      "gridPos": { "x": 8, "y": 0, "w": 8, "h": 5 },
+      "datasource": { "type": "prometheus", "uid": "mmaug-prometheus" },
+      "targets": [{ "refId": "A", "expr": "tooling_requests_total" }],
+      "fieldConfig": { "defaults": { "color": { "mode": "fixed", "fixedColor": "cyan" } }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none" }
+    },
+    {
+      "id": 3, "type": "stat", "title": "Application uptime (seconds)",
+      "gridPos": { "x": 16, "y": 0, "w": 8, "h": 5 },
+      "datasource": { "type": "prometheus", "uid": "mmaug-prometheus" },
+      "targets": [{ "refId": "A", "expr": "tooling_uptime_seconds" }],
+      "fieldConfig": { "defaults": { "color": { "mode": "fixed", "fixedColor": "purple" } }, "overrides": [] },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "colorMode": "value", "graphMode": "none" }
+    },
+    {
+      "id": 4, "type": "timeseries", "title": "Request counter over time (click Send one request)",
+      "gridPos": { "x": 0, "y": 5, "w": 24, "h": 9 },
+      "datasource": { "type": "prometheus", "uid": "mmaug-prometheus" },
+      "targets": [{ "refId": "A", "expr": "tooling_requests_total", "legendFormat": "requests" }],
+      "fieldConfig": { "defaults": { "custom": { "lineWidth": 3, "fillOpacity": 15 } }, "overrides": [] }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+- name: Prepare the application's message
+  hosts: local
+  gather_facts: false
+  vars:
+    app_message: "Hello from Ansible"
+  tasks:
+    - name: Write Terraform input values
+      ansible.builtin.template:
+        src: message.json.j2
+        dest: "{{ playbook_dir }}/../terraform/message.auto.tfvars.json"
+        mode: "0644"

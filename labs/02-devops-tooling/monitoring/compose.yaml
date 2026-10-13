@@ -1,0 +1,25 @@
+name: mmaug-tooling-monitoring
+services:
+  prometheus:
+    image: prom/prometheus:v3.15.0
+    ports:
+      - "127.0.0.1:9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks: [lab]
+  grafana:
+    image: grafana/grafana:13.2.3
+    ports:
+      - "127.0.0.1:3001:3000"
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    networks: [lab]
+networks:
+  lab:
+    external: true
+    name: mmaug-tooling-lab

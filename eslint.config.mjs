@@ -3,7 +3,7 @@ import globals from "globals";
 
 export default [
   {
-    ignores: ["dist/**", "node_modules/**"],
+    ignores: ["dist/**", "node_modules/**", "labs/02-devops-tooling/dotnet-lab/**"],
   },
   js.configs.recommended,
   {
